@@ -1,35 +1,46 @@
 package auth.auth_files.autentification_jwt.entity;
 
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Set;
 
 @Component
 @Entity
-@Table(name = "user_table_one")
-public class User {
+@Table(name = "user_table_two")
+public class User{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "user_id")
+    @Column(name = "id")
     private int id;
 
-    @Column(name = "user_name")
+    @Column(name = "name")
     private String userName;
 
-    @Column(name = "user_surname")
-    private String userSurname;
+    @Column(name = "password")
+    private String userPassword;
 
-    @Column(name = "user_role")
+    @Column(name = "role")
     private String userRole;
 
-    public User(String userName, String userSurname, String userRole) {
+    @Column(name="active")
+    private String userActive;
+
+
+    public User(String userName, String userSurname, String userRole, String userActive) {
         this.userName = userName;
-        this.userSurname = userSurname;
+        this.userPassword = userSurname;
         this.userRole = userRole;
+        this.userActive = userActive;
     }
 
     public User() {
     }
+
 
     public int getId() {
         return id;
@@ -47,12 +58,12 @@ public class User {
         this.userName = userName;
     }
 
-    public String getUserSurname() {
-        return userSurname;
+    public String getUserPassword() {
+        return userPassword;
     }
 
-    public void setUserSurname(String userSurname) {
-        this.userSurname = userSurname;
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
     }
 
     public String getUserRole() {
@@ -62,4 +73,13 @@ public class User {
     public void setUserRole(String userRole) {
         this.userRole = userRole;
     }
+
+    public String getUserActive() {
+        return userActive;
+    }
+
+    public void setUserActive(String userActive) {
+        this.userActive = userActive;
+    }
+
 }

@@ -2,11 +2,12 @@ package auth.auth_files.autentification_jwt.DTO;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonIgnoreProperties(ignoreUnknown = true) //игнорирует любые не распознанные символы во время десирилизации
 public class UserJSON_DTO {
     private String userName;
     private String password;
     private String role;
+    private Boolean active;
 
     public String getUserName() {
         return userName;
@@ -30,5 +31,13 @@ public class UserJSON_DTO {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 }
